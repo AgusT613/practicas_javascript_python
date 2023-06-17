@@ -11,25 +11,30 @@
     <!-- Cabecera Principal y Buscador de Retos -->
     <header id="cabecera_principal">
         <h1>Practicas con JavaScript y Python</h1>
-        <nav class="navegacion_principal">
+        <!-- <nav class="navegacion_principal">
             <input class="buscador_retos" type="text" placeholder="Número del reto...">
-        </nav>
+        </nav> -->
     </header>
 
     <!-- Contenido Principal - Retos -->
     <main id="contenedor_principal">
         <section id="reto_cero"  class="retos">
-            <h2>Reto 0: El Famoso "Fizz Buzz"</h2>
-            <p>
-                Escribe un programa que muestre por consola (con un print) los números de 1 a 100 (ambos incluidos y con un salto de línea entre cada impresión), sustituyendo los siguientes:
-            </p>
-            <ul>
-                <li>Múltiplos de 3 por la palabra "fizz".</li>
-                <li>Múltiplos de 5 por la palabra "buzz".</li>
-                <li>Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".</li>
-            </ul>
-            <h3>Resolución</h3>
-            <textarea id="texto_codigo" readonly>
+            <div class="retos__enunciado">
+                <h2>Reto 0: El Famoso "Fizz Buzz"</h2>
+                <div class="retos__enunciado_texto">
+                    <p>
+                        Escribe un programa que muestre por consola (con un print) los números de 1 a 100 (ambos incluidos y con un salto de línea entre cada impresión), sustituyendo los siguientes:
+                    </p>
+                    <ul>
+                        <li>Múltiplos de 3 por la palabra "fizz".</li>
+                        <li>Múltiplos de 5 por la palabra "buzz".</li>
+                        <li>Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="retos__resolucion">
+                <h3>Resolución</h3>
+                <p class="texto_codigo" readonly>
 # The number_list is taken to print the values with fizz, buzz or fizz_buzz
 number_up_to = int(input('Fizz Buzz Game from 1 to: ')) + 1
 for number_to_change in range(1, number_up_to):
@@ -42,23 +47,29 @@ for number_to_change in range(1, number_up_to):
         print(f'{number_to_change} is Buzz!')
         continue
     else: print(number_to_change)
-            </textarea>
+                </p>
+            </div>
         </section>
         <section id="reto_uno"  class="retos">
-            <h2>Reto 1: El "Lenguaje Hacker"</h2>
-            <p>
-                Escribe un programa que reciba un texto y transforme lenguaje natural a "lenguaje hacker" (conocido realmente como "leet" o "1337"). Este lenguaje se caracteriza por sustituir caracteres alfanuméricos.
-            </p>
-            <ul>
-                <li>
-                    Utiliza esta <a href="https://www.gamehouse.com/blog/leet-speak-cheat-sheet/" target="_blank">tabla</a> con el alfabeto y los números en "leet".
-                </li>
-                <li>
-                    Usa la primera opción de cada transformación. Por ejemplo "4" para la "a"
-                </li>
-            </ul>
-            <h3>Resolución</h3>
-            <textarea id="texto_codigo" readonly>
+            <div class="retos__enunciado">
+                <h2>Reto 1: El "Lenguaje Hacker"</h2>
+                <div class="retos__enunciado_texto">
+                    <p>
+                        Escribe un programa que reciba un texto y transforme lenguaje natural a "lenguaje hacker" (conocido realmente como "leet" o "1337"). Este lenguaje se caracteriza por sustituir caracteres alfanuméricos.
+                    </p>
+                    <ul>
+                        <li>
+                            Utiliza esta <a href="https://www.gamehouse.com/blog/leet-speak-cheat-sheet/" target="_blank">tabla</a> con el alfabeto y los números en "leet".
+                        </li>
+                        <li>
+                            Usa la primera opción de cada transformación. Por ejemplo "4" para la "a"
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="retos__resolucion">
+                <h3>Resolución</h3>
+                <p class="texto_codigo" readonly>
 import json
 # Deserialize JSON file
 with open('./alfabeto_leet/leet.json', 'r') as file:
@@ -81,78 +92,85 @@ def transform_to_leet(characters: list):
 # TEST
 # match_natural_to_leet_character("h")
 transform_to_leet(divided_characters_from_text)
-            </textarea>
+                </p>
+            </div>
         </section>
         <section id="reto_dos"  class="retos">
-            <h2>Reto 2: El Partido de Tenis</h2>
-            <p>
-                Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado. El programa recibirá una secuencia formada por "P1" (Player 1) o "P2" (Player 2), según quien gane cada punto del juego.
-            </p>
-            <ul>
-                <li>
-                    Las puntuaciones de un juego son "Love" (cero), 15, 30, 40, "Deuce" (empate), ventaja.
-                </li>
-                <li>
-                    <p>Ante la secuencia [P1, P1, P2, P2, P1, P2, P1, P1], el programa mostraría lo siguiente:</p>
+            <div class="retos__enunciado">
+                <h2>Reto 2: El Partido de Tenis</h2>
+                <div class="retos__enunciado_texto">
+                    <p>
+                        Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado. El programa recibirá una secuencia formada por "P1" (Player 1) o "P2" (Player 2), según quien gane cada punto del juego.
+                    </p>
                     <ul>
-                        <li>15 - Love</li>
-                        <li>30 - Love</li>
-                        <li>30 - 15</li>
-                        <li>30 - 30</li>
-                        <li>40 - 30</li>
-                        <li>Deuce</li>
-                        <li>Ventaja P1</li>
-                        <li>Ha ganado el P1</li>
+                        <li>
+                            Las puntuaciones de un juego son "Love" (cero), 15, 30, 40, "Deuce" (empate), ventaja.
+                        </li>
+                        <li>
+                            <p>Ante la secuencia [P1, P1, P2, P2, P1, P2, P1, P1], el programa mostraría lo siguiente:</p>
+                            <ul>
+                                <li>15 - Love</li>
+                                <li>30 - Love</li>
+                                <li>30 - 15</li>
+                                <li>30 - 30</li>
+                                <li>40 - 30</li>
+                                <li>Deuce</li>
+                                <li>Ventaja P1</li>
+                                <li>Ha ganado el P1</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Si quieres, puedes controlar errores en la entrada de datos. 
+                        </li>
+                        <li>
+                            Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.
+                        </li>
                     </ul>
-                </li>
-                <li>
-                    Si quieres, puedes controlar errores en la entrada de datos. 
-                </li>
-                <li>
-                    Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.
-                </li>
-            </ul>
-            <h3>Resolución</h3>
-            <textarea id="texto_codigo" readonly>
+                </div>
+            </div>
+            <div class="retos__resolucion">
+                <h3>Resolución</h3>
+                <p class="texto_codigo" readonly>
 from enum import Enum
 
 class Player(Enum):
-    P1 = 'PLAYER 1'
-    P2 = 'PLAYER 2'
-    
+P1 = 'PLAYER 1'
+P2 = 'PLAYER 2'
+
 score_table, tie = ["Love", 15, 30, 40], "Deuce"
 sequence = [Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P1]
 
 def evaluate_sequence(sequence: list):
-    # Initial Score and State of Tie
-    score_player_1, score_player_2 = 0, 0
-    state_of_tie = False
-    # Each Player Score
-    for player in sequence:
-        # In case of having 3 points each player, then it´s a tie
-        if score_player_1 == 3 and score_player_2 == 3 and state_of_tie == False:
-            print(f'It´s a tie! {tie}!')
-            state_of_tie = True
-        # Scores player 1. If it has 3 points one after the other, it ends there
-        elif player.value == 'PLAYER 1' and not state_of_tie:
-            if score_player_1 == 3: 
-                print('Player 1 Wins')
-                break
-            score_player_1 += 1
-            print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
-        # Same logic in this section
-        elif player.value == 'PLAYER 2' and not state_of_tie:
-            if (score_player_2 == 3):
-                print('Player 2 Wins')
-                break
-            score_player_2 += 1
-            print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
-        # Final winner here if there was a tie
-        else:
-            print( 'Player 1 Wins' if player.value == 'PLAYER 1' else 'Player 2 Wins' )
+# Initial Score and State of Tie
+score_player_1, score_player_2 = 0, 0
+state_of_tie = False
+# Each Player Score
+for player in sequence:
+    # In case of having 3 points each player, then it´s a tie
+    if score_player_1 == 3 and score_player_2 == 3 and state_of_tie == False:
+        print(f'It´s a tie! {tie}!')
+        state_of_tie = True
+    # Scores player 1. If it has 3 points one after the other, it ends there
+    elif player.value == 'PLAYER 1' and not state_of_tie:
+        if score_player_1 == 3: 
+            print('Player 1 Wins')
+            break
+        score_player_1 += 1
+        print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
+    # Same logic in this section
+    elif player.value == 'PLAYER 2' and not state_of_tie:
+        if (score_player_2 == 3):
+            print('Player 2 Wins')
+            break
+        score_player_2 += 1
+        print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
+    # Final winner here if there was a tie
+    else:
+        print( 'Player 1 Wins' if player.value == 'PLAYER 1' else 'Player 2 Wins' )
 
 evaluate_sequence(sequence)
-            </textarea>
+                </p>
+            </div>
         </section>
     </main>
 </body>
