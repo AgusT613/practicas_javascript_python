@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- Cabecera Principal y Buscador de Retos -->
-    <header id="cabecera_principal">
+    <header class="cabecera_principal">
         <h1>Practicas con JavaScript y Python</h1>
         <!-- <nav class="navegacion_principal">
             <input class="buscador_retos" type="text" placeholder="Número del reto...">
@@ -17,8 +17,8 @@
     </header>
 
     <!-- Contenido Principal - Retos -->
-    <main id="contenedor_principal">
-        <section id="reto_cero"  class="retos">
+    <main class="contenedor_principal">
+        <section class="retos">
             <div class="retos__enunciado">
                 <h2>Reto 0: El Famoso "Fizz Buzz"</h2>
                 <div class="retos__enunciado_texto">
@@ -34,23 +34,25 @@
             </div>
             <div class="retos__resolucion">
                 <h3>Resolución</h3>
-                <p class="texto_codigo" readonly>
-# The number_list is taken to print the values with fizz, buzz or fizz_buzz
-number_up_to = int(input('Fizz Buzz Game from 1 to: ')) + 1
-for number_to_change in range(1, number_up_to):
-    if number_to_change % 3 == 0 and number_to_change % 5 == 0:
-        print(f'{number_to_change} is FizzBuzz!')
-    elif number_to_change % 3 == 0:
-        print(f'{number_to_change} is Fizz!')
-        continue
-    elif number_to_change % 5 == 0:
-        print(f'{number_to_change} is Buzz!')
-        continue
-    else: print(number_to_change)
-                </p>
+                <pre class="texto_codigo">
+                    <code>
+                    # The number_list is taken to print the values with fizz, buzz or fizz_buzz
+                    number_up_to = int(input('Fizz Buzz Game from 1 to: ')) + 1
+                    for number_to_change in range(1, number_up_to):
+                        if number_to_change % 3 == 0 and number_to_change % 5 == 0:
+                            print(f'{number_to_change} is FizzBuzz!')
+                        elif number_to_change % 3 == 0:
+                            print(f'{number_to_change} is Fizz!')
+                            continue
+                        elif number_to_change % 5 == 0:
+                            print(f'{number_to_change} is Buzz!')
+                            continue
+                        else: print(number_to_change)
+                    </code>
+                </pre>
             </div>
         </section>
-        <section id="reto_uno"  class="retos">
+        <section class="retos">
             <div class="retos__enunciado">
                 <h2>Reto 1: El "Lenguaje Hacker"</h2>
                 <div class="retos__enunciado_texto">
@@ -69,33 +71,35 @@ for number_to_change in range(1, number_up_to):
             </div>
             <div class="retos__resolucion">
                 <h3>Resolución</h3>
-                <p class="texto_codigo" readonly>
-import json
-# Deserialize JSON file
-with open('./alfabeto_leet/leet.json', 'r') as file:
-    leet_alphabet_object = json.load(file)
-# Request a text and make a list of characters from it
-text = input("Convert natural language to leet language. Insert text: ")
-divided_characters_from_text = [i for i in text]
-# Function that returns the leet character depends on a normal_letter given
-def match_natural_to_leet_character(normal_letter: str):
-    if normal_letter == " ": return " "
-    for i in leet_alphabet_object:
-        normal_character = i["letter"][0] # --> str
-        leet_characters = i["letter"][1] # --> list()
-        if normal_character == normal_letter: return leet_characters[0]
-# Replaces each character from the input to its corresponding leet character
-def transform_to_leet(characters: list):
-    leet_format = [i.replace(i, match_natural_to_leet_character(i)) for i in characters]
-    output = "".join(leet_format) # --> Concatenate characters
-    print(f'Your initial word was: "{"".join(characters)}"\nAnd was converted to leet: "{output}"')
-# TEST
-# match_natural_to_leet_character("h")
-transform_to_leet(divided_characters_from_text)
-                </p>
+                <pre class="texto_codigo">
+                    <code>
+                    import json
+                    # Deserialize JSON file
+                    with open('./alfabeto_leet/leet.json', 'r') as file:
+                        leet_alphabet_object = json.load(file)
+                    # Request a text and make a list of characters from it
+                    text = input("Convert natural language to leet language. Insert text: ")
+                    divided_characters_from_text = [i for i in text]
+                    # Function that returns the leet character depends on a normal_letter given
+                    def match_natural_to_leet_character(normal_letter: str):
+                        if normal_letter == " ": return " "
+                        for i in leet_alphabet_object:
+                            normal_character = i["letter"][0] # --> str
+                            leet_characters = i["letter"][1] # --> list()
+                            if normal_character == normal_letter: return leet_characters[0]
+                    # Replaces each character from the input to its corresponding leet character
+                    def transform_to_leet(characters: list):
+                        leet_format = [i.replace(i, match_natural_to_leet_character(i)) for i in characters]
+                        output = "".join(leet_format) # --> Concatenate characters
+                        print(f'Your initial word was: "{"".join(characters)}"\nAnd was converted to leet: "{output}"')
+                    # TEST
+                    # match_natural_to_leet_character("h")
+                    transform_to_leet(divided_characters_from_text)
+                    </code>
+                </pre>
             </div>
         </section>
-        <section id="reto_dos"  class="retos">
+        <section class="retos">
             <div class="retos__enunciado">
                 <h2>Reto 2: El Partido de Tenis</h2>
                 <div class="retos__enunciado_texto">
@@ -130,46 +134,48 @@ transform_to_leet(divided_characters_from_text)
             </div>
             <div class="retos__resolucion">
                 <h3>Resolución</h3>
-                <p class="texto_codigo" readonly>
-from enum import Enum
-
-class Player(Enum):
-P1 = 'PLAYER 1'
-P2 = 'PLAYER 2'
-
-score_table, tie = ["Love", 15, 30, 40], "Deuce"
-sequence = [Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P1]
-
-def evaluate_sequence(sequence: list):
-# Initial Score and State of Tie
-score_player_1, score_player_2 = 0, 0
-state_of_tie = False
-# Each Player Score
-for player in sequence:
-    # In case of having 3 points each player, then it´s a tie
-    if score_player_1 == 3 and score_player_2 == 3 and state_of_tie == False:
-        print(f'It´s a tie! {tie}!')
-        state_of_tie = True
-    # Scores player 1. If it has 3 points one after the other, it ends there
-    elif player.value == 'PLAYER 1' and not state_of_tie:
-        if score_player_1 == 3: 
-            print('Player 1 Wins')
-            break
-        score_player_1 += 1
-        print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
-    # Same logic in this section
-    elif player.value == 'PLAYER 2' and not state_of_tie:
-        if (score_player_2 == 3):
-            print('Player 2 Wins')
-            break
-        score_player_2 += 1
-        print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
-    # Final winner here if there was a tie
-    else:
-        print( 'Player 1 Wins' if player.value == 'PLAYER 1' else 'Player 2 Wins' )
-
-evaluate_sequence(sequence)
-                </p>
+                <pre class="texto_codigo">
+                    <code>
+                    from enum import Enum
+                    
+                    class Player(Enum):
+                    P1 = 'PLAYER 1'
+                    P2 = 'PLAYER 2'
+                    
+                    score_table, tie = ["Love", 15, 30, 40], "Deuce"
+                    sequence = [Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P1]
+                    
+                    def evaluate_sequence(sequence: list):
+                    # Initial Score and State of Tie
+                    score_player_1, score_player_2 = 0, 0
+                    state_of_tie = False
+                    # Each Player Score
+                    for player in sequence:
+                        # In case of having 3 points each player, then it´s a tie
+                        if score_player_1 == 3 and score_player_2 == 3 and state_of_tie == False:
+                            print(f'It´s a tie! {tie}!')
+                            state_of_tie = True
+                        # Scores player 1. If it has 3 points one after the other, it ends there
+                        elif player.value == 'PLAYER 1' and not state_of_tie:
+                            if score_player_1 == 3: 
+                                print('Player 1 Wins')
+                                break
+                            score_player_1 += 1
+                            print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
+                        # Same logic in this section
+                        elif player.value == 'PLAYER 2' and not state_of_tie:
+                            if (score_player_2 == 3):
+                                print('Player 2 Wins')
+                                break
+                            score_player_2 += 1
+                            print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
+                        # Final winner here if there was a tie
+                        else:
+                            print( 'Player 1 Wins' if player.value == 'PLAYER 1' else 'Player 2 Wins' )
+                    
+                    evaluate_sequence(sequence)
+                    </code>
+                </pre>
             </div>
         </section>
     </main>
