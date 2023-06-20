@@ -26,6 +26,14 @@ h1{
     color: #ffe86f;
 }
 
+h2{
+    font-weight: 500;
+}
+
+h3 {
+    margin: 0 0 .5em;
+}
+
 .navegacion_principal{
     width: 45%;
     display: flex;
@@ -55,7 +63,7 @@ ul li{
 }
 
 .retos{
-    width: 65%;
+    width: 70%;
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(30px);
     border-radius: 1em;
@@ -64,8 +72,10 @@ ul li{
     font-weight: 300;
 }
 
-.retos > h2{
-    font-weight: 500;
+.retos__enunciado_texto {
+    width: 70%;
+    margin: 0 auto;
+    padding: 1em 0;
 }
 
 .texto_codigo{
@@ -116,11 +126,13 @@ ul li{
     .retos__enunciado_texto{
         font-size: 16px;
         line-height: 1.75em;
+        width: 100%;
     }
 
     .retos__resolucion > h3{
         text-align: center;
-        padding: 10px 0;
+        padding-bottom: 10px;
+        margin: 0;
     }
 
     .texto_codigo{
