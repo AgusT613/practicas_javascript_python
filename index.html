@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos Principales -->
     <link rel="stylesheet" href="index.css">
+    <!-- Estilos del Syntax Highlighter -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tomorrow-night-blue.min.css">
+    <!-- Script Principal -->
     <script src="main.js"></script>
+    <!-- Script del Syntax Highlighter -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll()</script>
+    <!-- Titulo de Pagina -->
     <title>JavaScript y Python</title>
 </head>
 <body>
@@ -35,7 +43,7 @@
             <div class="retos__resolucion">
                 <h3>Resolución</h3>
                 <pre class="texto_codigo">
-                    <code>
+                    <code class="language-python">
                     # The number_list is taken to print the values with fizz, buzz or fizz_buzz
                     number_up_to = int(input('Fizz Buzz Game from 1 to: ')) + 1
                     for number_to_change in range(1, number_up_to):
@@ -72,7 +80,7 @@
             <div class="retos__resolucion">
                 <h3>Resolución</h3>
                 <pre class="texto_codigo">
-                    <code>
+                    <code class="language-python">
                     import json
                     # Deserialize JSON file
                     with open('./alfabeto_leet/leet.json', 'r') as file:
@@ -135,7 +143,7 @@
             <div class="retos__resolucion">
                 <h3>Resolución</h3>
                 <pre class="texto_codigo">
-                    <code>
+                    <code class="language-python">
                     from enum import Enum
                     
                     class Player(Enum):
@@ -204,7 +212,7 @@
             <div class="retos__resolucion">
                 <h3>Resolución</h3>
                 <pre class="texto_codigo">
-                    <code>
+                    <code class="language-python">
                     from random import choice
 
                     class Password():

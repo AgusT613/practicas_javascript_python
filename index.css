@@ -81,10 +81,10 @@ ul li{
 
 .texto_codigo > code{
     line-height: 2em;
+    background: none;
     color: #ffffff;
     font-size: .8em;
     white-space: pre-line;
-    font-family: 'Poppins', sans-serif;
 }
 
 @media (max-width: 420px){
