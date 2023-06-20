@@ -84,7 +84,11 @@ ul li{
     background: none;
     color: #ffffff;
     font-size: .8em;
-    white-space: pre-line;
+}
+
+.texto_codigo code.hljs{
+    overflow-x: hidden;
+    text-wrap: balance;
 }
 
 @media (max-width: 420px){

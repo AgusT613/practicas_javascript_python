@@ -44,18 +44,18 @@
                 <h3>Resolución</h3>
                 <pre class="texto_codigo">
                     <code class="language-python">
-                    # The number_list is taken to print the values with fizz, buzz or fizz_buzz
-                    number_up_to = int(input('Fizz Buzz Game from 1 to: ')) + 1
-                    for number_to_change in range(1, number_up_to):
-                        if number_to_change % 3 == 0 and number_to_change % 5 == 0:
-                            print(f'{number_to_change} is FizzBuzz!')
-                        elif number_to_change % 3 == 0:
-                            print(f'{number_to_change} is Fizz!')
-                            continue
-                        elif number_to_change % 5 == 0:
-                            print(f'{number_to_change} is Buzz!')
-                            continue
-                        else: print(number_to_change)
+# The number_list is taken to print the values with fizz, buzz or fizz_buzz
+number_up_to = int(input('Fizz Buzz Game from 1 to: ')) + 1
+for number_to_change in range(1, number_up_to):
+    if number_to_change % 3 == 0 and number_to_change % 5 == 0:
+        print(f'{number_to_change} is FizzBuzz!')
+    elif number_to_change % 3 == 0:
+        print(f'{number_to_change} is Fizz!')
+        continue
+    elif number_to_change % 5 == 0:
+        print(f'{number_to_change} is Buzz!')
+        continue
+    else: print(number_to_change)
                     </code>
                 </pre>
             </div>
@@ -81,28 +81,28 @@
                 <h3>Resolución</h3>
                 <pre class="texto_codigo">
                     <code class="language-python">
-                    import json
-                    # Deserialize JSON file
-                    with open('./alfabeto_leet/leet.json', 'r') as file:
-                        leet_alphabet_object = json.load(file)
-                    # Request a text and make a list of characters from it
-                    text = input("Convert natural language to leet language. Insert text: ")
-                    divided_characters_from_text = [i for i in text]
-                    # Function that returns the leet character depends on a normal_letter given
-                    def match_natural_to_leet_character(normal_letter: str):
-                        if normal_letter == " ": return " "
-                        for i in leet_alphabet_object:
-                            normal_character = i["letter"][0] # --> str
-                            leet_characters = i["letter"][1] # --> list()
-                            if normal_character == normal_letter: return leet_characters[0]
-                    # Replaces each character from the input to its corresponding leet character
-                    def transform_to_leet(characters: list):
-                        leet_format = [i.replace(i, match_natural_to_leet_character(i)) for i in characters]
-                        output = "".join(leet_format) # --> Concatenate characters
-                        print(f'Your initial word was: "{"".join(characters)}"\nAnd was converted to leet: "{output}"')
-                    # TEST
-                    # match_natural_to_leet_character("h")
-                    transform_to_leet(divided_characters_from_text)
+import json
+# Deserialize JSON file
+with open('./alfabeto_leet/leet.json', 'r') as file:
+    leet_alphabet_object = json.load(file)
+# Request a text and make a list of characters from it
+text = input("Convert natural language to leet language. Insert text: ")
+divided_characters_from_text = [i for i in text]
+# Function that returns the leet character depends on a normal_letter given
+def match_natural_to_leet_character(normal_letter: str):
+    if normal_letter == " ": return " "
+    for i in leet_alphabet_object:
+        normal_character = i["letter"][0] # --> str
+        leet_characters = i["letter"][1] # --> list()
+        if normal_character == normal_letter: return leet_characters[0]
+# Replaces each character from the input to its corresponding leet character
+def transform_to_leet(characters: list):
+    leet_format = [i.replace(i, match_natural_to_leet_character(i)) for i in characters]
+    output = "".join(leet_format) # --> Concatenate characters
+    print(f'Your initial word was: "{"".join(characters)}"\nAnd was converted to leet: "{output}"')
+# TEST
+# match_natural_to_leet_character("h")
+transform_to_leet(divided_characters_from_text)
                     </code>
                 </pre>
             </div>
@@ -144,44 +144,44 @@
                 <h3>Resolución</h3>
                 <pre class="texto_codigo">
                     <code class="language-python">
-                    from enum import Enum
-                    
-                    class Player(Enum):
-                    P1 = 'PLAYER 1'
-                    P2 = 'PLAYER 2'
-                    
-                    score_table, tie = ["Love", 15, 30, 40], "Deuce"
-                    sequence = [Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P1]
-                    
-                    def evaluate_sequence(sequence: list):
-                    # Initial Score and State of Tie
-                    score_player_1, score_player_2 = 0, 0
-                    state_of_tie = False
-                    # Each Player Score
-                    for player in sequence:
-                        # In case of having 3 points each player, then it´s a tie
-                        if score_player_1 == 3 and score_player_2 == 3 and state_of_tie == False:
-                            print(f'It´s a tie! {tie}!')
-                            state_of_tie = True
-                        # Scores player 1. If it has 3 points one after the other, it ends there
-                        elif player.value == 'PLAYER 1' and not state_of_tie:
-                            if score_player_1 == 3: 
-                                print('Player 1 Wins')
-                                break
-                            score_player_1 += 1
-                            print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
-                        # Same logic in this section
-                        elif player.value == 'PLAYER 2' and not state_of_tie:
-                            if (score_player_2 == 3):
-                                print('Player 2 Wins')
-                                break
-                            score_player_2 += 1
-                            print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
-                        # Final winner here if there was a tie
-                        else:
-                            print( 'Player 1 Wins' if player.value == 'PLAYER 1' else 'Player 2 Wins' )
-                    
-                    evaluate_sequence(sequence)
+from enum import Enum
+
+class Player(Enum):
+P1 = 'PLAYER 1'
+P2 = 'PLAYER 2'
+
+score_table, tie = ["Love", 15, 30, 40], "Deuce"
+sequence = [Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P2, Player.P1, Player.P1]
+
+def evaluate_sequence(sequence: list):
+# Initial Score and State of Tie
+score_player_1, score_player_2 = 0, 0
+state_of_tie = False
+# Each Player Score
+for player in sequence:
+    # In case of having 3 points each player, then it´s a tie
+    if score_player_1 == 3 and score_player_2 == 3 and state_of_tie == False:
+        print(f'It´s a tie! {tie}!')
+        state_of_tie = True
+    # Scores player 1. If it has 3 points one after the other, it ends there
+    elif player.value == 'PLAYER 1' and not state_of_tie:
+        if score_player_1 == 3: 
+            print('Player 1 Wins')
+            break
+        score_player_1 += 1
+        print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
+    # Same logic in this section
+    elif player.value == 'PLAYER 2' and not state_of_tie:
+        if (score_player_2 == 3):
+            print('Player 2 Wins')
+            break
+        score_player_2 += 1
+        print(f'{score_table[score_player_1]} ---- {score_table[score_player_2]}')
+    # Final winner here if there was a tie
+    else:
+        print( 'Player 1 Wins' if player.value == 'PLAYER 1' else 'Player 2 Wins' )
+
+evaluate_sequence(sequence)
                     </code>
                 </pre>
             </div>
@@ -213,120 +213,120 @@
                 <h3>Resolución</h3>
                 <pre class="texto_codigo">
                     <code class="language-python">
-                    from random import choice
+from random import choice
 
-                    class Password():
-                        # Default password constructor
-                        def __init__(
-                            self,
-                            length: int = 8,
-                            numbers_or_without: bool = True,
-                            uppercase_or_lower = 'lower',
-                            symbols_or_without: bool = False
-                        ):
-                            self.length = length
-                            self.numbers_or_without = numbers_or_without
-                            self.upper_or_lower = uppercase_or_lower
-                            self.symbols_or_without = symbols_or_without
-                        
-                        @staticmethod
-                        def output_message(password: str, length: int, with_numbers: str, with_letters: str, with_symbols: str):
-                            message = f"""
-                            Password config:
-                                - Length: {length}
-                                - Numbers: {with_numbers.capitalize()}
-                                - Letters: {with_letters.capitalize()}
-                                - Symbols: {with_symbols.capitalize()}
-                                
-                                - Password --> {password}
-                            """
-                            print(message)
-                        
-                        # Function for numbers
-                        @staticmethod
-                        def numbers(): 
-                            return list(range(48, 58))
-                        # Function for uppercase or lowercase
-                        @staticmethod
-                        def text_case(lower_or_upper: str = 'lower') -> list:
-                            # ASCII Code
-                            if lower_or_upper == 'upper': return list(range(65, 91))
-                            return list(range(97, 123))
-                        # Function for symbols
-                        @staticmethod
-                        def symbols():
-                            return \
-                            list(range(33, 48)) + \
-                            list(range(58, 65)) + \
-                            list(range(91, 97)) + \
-                            list(range(123, 127))
-                        
-                        # Generates a password with the default parameters
-                        def generate(self):
-                            full_password = str()
-                            
-                            # 3° Condition - No numbers, no letters, symbols
-                            if not self.numbers_or_without and self.upper_or_lower == "" and self.symbols_or_without:
-                                while len(full_password) < self.length:
-                                    full_password += chr(choice(Password.symbols()))
-                                return Password.output_message(
-                                    full_password,
-                                    self.length,
-                                    with_numbers='no',
-                                    with_letters='no',
-                                    with_symbols='yes'
-                                )
-                            
-                            # 2° Condition - No numbers, letters, symbols
-                            if not self.numbers_or_without and self.upper_or_lower != "" and self.symbols_or_without:
-                                while len(full_password) < self.length:
-                                    if self.upper_or_lower == 'lower':
-                                        letters_and_symbols = Password.text_case() + Password.symbols()
-                                        full_password += chr(choice(letters_and_symbols))
-                                    else: 
-                                        letters_and_symbols = Password.text_case('upper') + Password.symbols()
-                                        full_password += chr(choice(letters_and_symbols))
-                                return Password.output_message(
-                                    full_password,
-                                    self.length,
-                                    with_numbers='no',
-                                    with_letters='yes',
-                                    with_symbols='yes'
-                                )
-                            
-                            # 1° Condition - No numbers, letters, no symbols
-                            if not self.numbers_or_without and self.upper_or_lower != "":
-                                while len(full_password) < self.length:
-                                    if self.upper_or_lower == 'lower': full_password += chr(choice(Password.text_case()))
-                                    else: full_password += chr(choice(Password.text_case('upper')))
-                                return Password.output_message(
-                                    full_password, 
-                                    self.length,
-                                    with_numbers='no',
-                                    with_letters='yes',
-                                    with_symbols='no'
-                                )
-                        
-                            # Default Condition - Numbers, letters, no symbols
-                            while len(full_password) < self.length:
-                                full_password += chr(choice(Password.numbers() + Password.text_case()))
-                            return Password.output_message(
-                                full_password,
-                                self.length,
-                                with_letters='yes',
-                                with_numbers='yes',
-                                with_symbols='no'
-                            )
-                    
-                    #TEST
-                    if __name__ == '__main__':
-                        Password().generate()
-                        Password(length=16).generate()
-                        Password(numbers_or_without=False).generate()
-                        Password(numbers_or_without=False, uppercase_or_lower='lower').generate()
-                        Password(numbers_or_without=False, uppercase_or_lower='upper').generate()
-                        Password(numbers_or_without=False, uppercase_or_lower="", symbols_or_without=True).generate()
-                        pass
+class Password():
+    # Default password constructor
+    def __init__(
+        self,
+        length: int = 8,
+        numbers_or_without: bool = True,
+        uppercase_or_lower = 'lower',
+        symbols_or_without: bool = False
+    ):
+        self.length = length
+        self.numbers_or_without = numbers_or_without
+        self.upper_or_lower = uppercase_or_lower
+        self.symbols_or_without = symbols_or_without
+    
+    @staticmethod
+    def output_message(password: str, length: int, with_numbers: str, with_letters: str, with_symbols: str):
+        message = f"""
+        Password config:
+            - Length: {length}
+            - Numbers: {with_numbers.capitalize()}
+            - Letters: {with_letters.capitalize()}
+            - Symbols: {with_symbols.capitalize()}
+            
+            - Password --> {password}
+        """
+        print(message)
+    
+    # Function for numbers
+    @staticmethod
+    def numbers(): 
+        return list(range(48, 58))
+    # Function for uppercase or lowercase
+    @staticmethod
+    def text_case(lower_or_upper: str = 'lower') -> list:
+        # ASCII Code
+        if lower_or_upper == 'upper': return list(range(65, 91))
+        return list(range(97, 123))
+    # Function for symbols
+    @staticmethod
+    def symbols():
+        return \
+        list(range(33, 48)) + \
+        list(range(58, 65)) + \
+        list(range(91, 97)) + \
+        list(range(123, 127))
+    
+    # Generates a password with the default parameters
+    def generate(self):
+        full_password = str()
+        
+        # 3° Condition - No numbers, no letters, symbols
+        if not self.numbers_or_without and self.upper_or_lower == "" and self.symbols_or_without:
+            while len(full_password) < self.length:
+                full_password += chr(choice(Password.symbols()))
+            return Password.output_message(
+                full_password,
+                self.length,
+                with_numbers='no',
+                with_letters='no',
+                with_symbols='yes'
+            )
+        
+        # 2° Condition - No numbers, letters, symbols
+        if not self.numbers_or_without and self.upper_or_lower != "" and self.symbols_or_without:
+            while len(full_password) < self.length:
+                if self.upper_or_lower == 'lower':
+                    letters_and_symbols = Password.text_case() + Password.symbols()
+                    full_password += chr(choice(letters_and_symbols))
+                else: 
+                    letters_and_symbols = Password.text_case('upper') + Password.symbols()
+                    full_password += chr(choice(letters_and_symbols))
+            return Password.output_message(
+                full_password,
+                self.length,
+                with_numbers='no',
+                with_letters='yes',
+                with_symbols='yes'
+            )
+        
+        # 1° Condition - No numbers, letters, no symbols
+        if not self.numbers_or_without and self.upper_or_lower != "":
+            while len(full_password) < self.length:
+                if self.upper_or_lower == 'lower': full_password += chr(choice(Password.text_case()))
+                else: full_password += chr(choice(Password.text_case('upper')))
+            return Password.output_message(
+                full_password, 
+                self.length,
+                with_numbers='no',
+                with_letters='yes',
+                with_symbols='no'
+            )
+    
+        # Default Condition - Numbers, letters, no symbols
+        while len(full_password) < self.length:
+            full_password += chr(choice(Password.numbers() + Password.text_case()))
+        return Password.output_message(
+            full_password,
+            self.length,
+            with_letters='yes',
+            with_numbers='yes',
+            with_symbols='no'
+        )
+
+#TEST
+if __name__ == '__main__':
+    Password().generate()
+    Password(length=16).generate()
+    Password(numbers_or_without=False).generate()
+    Password(numbers_or_without=False, uppercase_or_lower='lower').generate()
+    Password(numbers_or_without=False, uppercase_or_lower='upper').generate()
+    Password(numbers_or_without=False, uppercase_or_lower="", symbols_or_without=True).generate()
+    pass
                     </code>
                 </pre>
             </div>
