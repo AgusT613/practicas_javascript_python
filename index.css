@@ -78,6 +78,20 @@ ul li{
     padding: 1em 0;
 }
 
+.retos__enunciado_texto ul li a{
+    text-decoration: none;
+    background: rgba(0, 0, 0, .2);
+    color: #000;
+    padding: 1px 8px;
+    border-radius: 20px;
+}
+
+.retos__enunciado_texto ul li a:hover{
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    transition: .3s all ease;
+}
+
 .texto_codigo{
     background: #333;
     border-radius: 1em;
